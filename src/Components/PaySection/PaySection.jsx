@@ -25,7 +25,6 @@ export const PaySection = () => {
         }
     }, [items.length, isPaid]);
 
- 
     const createConfetti = () => {
         for (let i = 0; i < 50; i++) {
             const confetti = document.createElement('div');
@@ -53,7 +52,6 @@ export const PaySection = () => {
     };
 
     const handleFinalizePayment = () => {
-        
         gsap.to(containerRef.current, {
             opacity: 0,
             y: -20,
@@ -66,7 +64,6 @@ export const PaySection = () => {
         });
     };
 
-   
     if (isPaid) {
         return (
             <div className="successPayment">
@@ -76,22 +73,21 @@ export const PaySection = () => {
                             <path d="M20 6L9 17L4 12" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                     </div>
-                    <h2>PAGO RECIBIDO</h2>
-                    <p>Tu pedido ha sido procesado con éxito. Recibirás un correo de confirmación pronto.</p>
+                    <h2>PAYMENT RECEIVED</h2>
+                    <p>Your order has been processed successfully. You will receive a confirmation email shortly.</p>
                     <button className="exploreBtn" onClick={() => navigate("/")}>
-                        VOLVER A LA TIENDA
+                        BACK TO STORE
                     </button>
                 </div>
             </div>
         );
     }
 
- 
     if (items.length === 0) {
         return (
             <div className="emptyPay">
                 <h2>EMPTY CART</h2>
-                <p>Parece que aún no has añadido piezas a tu colección.</p>
+                <p>It seems you haven't added any pieces to your collection yet.</p>
                 <button className="exploreBtn" onClick={() => navigate("/")}>EXPLORE</button>
             </div>
         );
@@ -100,7 +96,7 @@ export const PaySection = () => {
     return (
         <section className="payPage" ref={containerRef}>
             <div className="payTitle">
-                <h1>Tu Cesta</h1>
+                <h1>CART</h1>
                 <button className="clearAllBtn" onClick={() => dispatch(clearCart())}>CLEAR CART</button>
             </div>
 
@@ -136,33 +132,32 @@ export const PaySection = () => {
 
                 <aside className="orderSummary">
                     <div className="summaryCard">
-                        <h3>Resumen Compra</h3>
+                        <h3>Order Summary</h3>
                         <div className="summaryRow">
                             <span>Subtotal</span>
                             <span>${subtotal.toLocaleString()}</span>
                         </div>
                         <div className="summaryRow">
-                            <span>Gastos de Envío</span>
-                            <span>{shipping === 0 ? "Bonificado" : `$${shipping}`}</span>
+                            <span>Shipping</span>
+                            <span>{shipping === 0 ? "Free" : `$${shipping}`}</span>
                         </div>
                         <div className="summaryTotal">
                             <span>Total</span>
                             <span>${(subtotal + shipping).toLocaleString()}</span>
                         </div>
                         <button className="checkoutBtn" onClick={handleFinalizePayment}>
-                            Finalizar Pedido
+                            Checkout
                         </button>
                         
                         <div className="paymentSecurity">
-                            <p>PAGO SEGURO GARANTIZADO</p>
+                            <p>SECURE PAYMENT GUARANTEED</p>
                             <div className="secureIcons">
                                 <img alt="Paypal" src="https://d.media.kavehome.com/image/fetch/w_120,f_auto/https://media.kavehome.com/media/images/payments/Paypal_100px.png" />
                                 <img alt="Mastercard" src="https://d.media.kavehome.com/image/fetch/w_120,f_auto/https://media.kavehome.com/media/images/payments/Mastercard.png" />
                                 <img alt="Visa" src="https://d.media.kavehome.com/image/fetch/w_120,f_auto/https://media.kavehome.com/media/images/payments/Visa.png" />
                                 <img alt="Apple pay" src="https://d.media.kavehome.com/image/fetch/w_120,f_auto/https://media.kavehome.com/media/images/payments/MicrosoftTeams-image_8.png" />
-                                <img fetchpriority="auto" alt="Google pay" height="20" loading="lazy" src="https://d.media.kavehome.com/image/fetch/w_120,f_auto/https://media.kavehome.com/media/images/payments/MicrosoftTeams-image_7.png" decoding="auto" srcset=""></img>
-                                                                <img fetchpriority="auto" alt="Amex" height="20" loading="lazy" src="https://d.media.kavehome.com/image/fetch/w_120,f_auto/https://media.kavehome.com/media/images/payments/AExpress.png" decoding="auto" srcset=""></img>
-
+                                <img alt="Google pay" height="20" src="https://d.media.kavehome.com/image/fetch/w_120,f_auto/https://media.kavehome.com/media/images/payments/MicrosoftTeams-image_7.png" />
+                                <img alt="Amex" height="20" src="https://d.media.kavehome.com/image/fetch/w_120,f_auto/https://media.kavehome.com/media/images/payments/AExpress.png" />
                             </div>
                         </div>
                     </div>
