@@ -15,9 +15,7 @@ const dispatch = useDispatch()
 const handleClickProduct = (productSku) => {
     navigate(`/product/${productSku}`)
 }    
-   const handleAddToWish = (product) => {
-        dispatch(addWish(product))  
-    }
+ 
     const wishItems = useSelector((state) => state.wish.wish)
     const isInWishList = (productId) => wishItems.some(item => item.id === productId)
     

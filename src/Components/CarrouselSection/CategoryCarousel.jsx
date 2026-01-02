@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { useCategoryProducts } from "../Hooks/useCategoryProducts";
 import "./CategoryCarousel.css";
 import { CategorySlide } from "./CategorySlide";
 

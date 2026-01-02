@@ -14,7 +14,7 @@ export const Header = () => {
 
 const[ searchTerm, setSearchTerm] = useState('')
 const [serachQuery, setSearchQuery] = useState('')
-const {products, loading} = useSearch(serachQuery)
+const {products} = useSearch(serachQuery)
 const navigate = useNavigate()
 const dispatch = useDispatch()
   
