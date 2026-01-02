@@ -1,9 +1,9 @@
 
 .newsContainer {
   padding: 80px 5%;
-  
+  max-width: 1400px; 
+  margin: 0 auto;
 }
-
 
 .newsContainer h3 {
   font-size: 2.5rem;
@@ -13,16 +13,13 @@
   color: #1a1a1a;
   margin-bottom: 50px;
   text-align: center;
-  position: relative;
 }
-
 
 .newProductsContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
 }
-
 
 .backImage {
   display: flex;
@@ -36,21 +33,26 @@
   border: 1px solid #eee;
 }
 
-
 .imgPRoductContainer {
   position: relative;
   overflow: hidden;
   cursor: pointer;
   background-color: #f5f5f5; 
-  transition: filter 0.5s ease;
+  aspect-ratio: 1 / 1.2;
 }
 
-
-.imgPRoductContainer:hover {
-  filter: contrast(1.05);
+.imgPRoductContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
 }
 
+.backImage:hover .imgPRoductContainer img {
+  transform: scale(1.05); 
+}
 
+/* Icono Wishlist */
 .heartIcon {
   position: absolute;
   top: 15px;
@@ -68,29 +70,20 @@
   transition: fill 0.3s ease;
 }
 
-
 .heartIcon.filled .heart-fill {
   fill: #1a1a1a; 
 }
 
-.heartIcon.filled .heart-outline {
-  stroke: #1a1a1a;
-}
-
-.heartIcon:hover {
-  transform: scale(1.2);
-}
-
-
+/* Detalles del producto */
 .detailsProduct {
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  position: relative;
 }
 
 .productNewsName {
-  font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
   color: #333;
@@ -101,19 +94,67 @@
 }
 
 .productPriceNews {
-  font-family: 'Inter', sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   color: #000;
   margin: 0;
 }
 
+/* RESPONSIVE DESIGN  */
 
-.detailsProduct::before {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 0;
+
+@media (max-width: 1024px) {
+  .newsContainer {
+    padding: 60px 4%;
+  }
+  .newsContainer h3 {
+    font-size: 2rem;
+    letter-spacing: 6px;
+  }
+  .newProductsContainer {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsContainer {
+    padding: 40px 15px;
+  }
+  .newsContainer h3 {
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+  }
+  .newProductsContainer {
+    
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+  }
+  .productNewsName {
+    font-size: 0.8rem;
+  }
+  .productPriceNews {
+    font-size: 0.9rem;
+  }
+  .heartIcon {
     width: 20px;
-    height: 2px;
+    height: 20px;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newProductsContainer {
+   
+    grid-template-columns: 1fr;
+  }
+  .backImage {
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .productNewsName {
+    font-size: 0.9rem;
+  }
 }
