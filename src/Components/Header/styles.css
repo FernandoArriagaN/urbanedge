@@ -1,0 +1,292 @@
+
+.headerContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #1a1a1a9f; 
+    backdrop-filter: blur(13px);
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    height: 80px;
+}
+
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+    width: 250px;
+}
+
+.searchContainer:focus-within {
+    width: 300px;
+    border-bottom-color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.searchContainer input {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    outline: none;
+    width: 100%;
+    text-transform: uppercase;
+    
+}
+input::placeholder {
+  color: rgba(255, 255, 255, 0.418);
+}   
+
+.searchIconBtn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    opacity: 0.6;
+}
+
+.searchIconBtn:hover { opacity: 1; }
+
+
+.logopageHome {
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    align-self: center;
+    justify-self: center;
+    
+}
+
+.logopageHome:hover { 
+    transform: scale(1.05); }
+
+
+
+
+.cartIcon, .wishIcon {
+    width: 22px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.cartIcon:hover, .wishIcon:hover {
+    transform: translateY(-2px);
+}
+
+
+
+
+.searchResultsContainer {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 40px 5%;
+    border-bottom: 2px solid #1a1a1a;
+    color: #1a1a1a;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+}
+
+.searchResultsContainer h4 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.resultsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.resultsGrid article {
+    text-align: center;
+    cursor: pointer;
+}
+
+.resultsGrid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    margin-bottom: 10px;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.resultsGrid article:hover img {
+    filter: grayscale(0%);
+}
+
+.resultsGrid p {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
+
+
+
+.iconWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.iconsNavContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px; 
+    align-items: center;
+}
+
+.cartIcon, .wishIcon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+}
+
+.iconWrapper:hover .cartIcon, 
+.iconWrapper:hover .wishIcon {
+    transform: translateY(-3px);
+}
+
+
+.badgeCart {
+    position: absolute;
+    top: 30%;    
+    right: 7%;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    font-size: 0.65rem;
+    font-weight: 900;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+
+.badgeWish {
+    position: absolute;
+    top: 50%;
+    right: 5.8%;
+    width: 10px;
+    height: 10px;
+    background-color: #000000;
+    border-radius: 50%;
+}
+
+
+
+@media (max-width: 992px) {
+    .searchContainer {
+        width: 180px; 
+    }
+    
+    .searchContainer:focus-within {
+        width: 220px;
+    }
+
+    .headerContainer {
+        padding: 0 3%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .headerContainer {
+        height: 70px;
+        grid-template-columns: 1fr auto 1fr; 
+        gap: 10px;
+    }
+
+    .logopageHome {
+        height: 30px; 
+    }
+
+    .searchContainer {
+        width: 40px; 
+        padding: 5px 10px;
+        border: none;
+        background: transparent;
+    }
+
+    .searchContainer input {
+        display: none; 
+    }
+
+    
+    .searchContainer:focus-within {
+        position: absolute;
+        left: 0;
+        top: 70px;
+        width: 100%;
+        background: #000000;
+        z-index: 1000;
+        display: flex;
+        box-sizing: border-box;
+    }
+    .searchContainer:focus-within input { display: block; } 
+
+
+
+
+
+
+
+
+
+
+    .iconsNavContainer {
+        gap: 15px; 
+    }
+    
+    .cartIcon, .wishIcon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .headerContainer {
+        padding: 0 15px;
+    }
+
+   
+    .badgeCart {
+        top: -5px;
+        right: -8px;
+        min-width: 15px;
+        height: 15px;
+        font-size: 0.55rem;
+    }
+
+    .badgeWish {
+        top: -2px;
+        right: -2px;
+        width: 8px;
+        height: 8px;
+    }
+}

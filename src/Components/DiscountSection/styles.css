@@ -1,0 +1,111 @@
+
+.discountContainer {
+  padding: 60px 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px; 
+  font-family: 'Inter', sans-serif;
+}
+
+.discountTitle {
+    grid-column: 1 / -1;
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #1a1a1a;
+    border-left: 4px solid #333;
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+
+.articleContainer {
+    position: relative;
+    background: transparent;
+    transition: transform 0.3s ease;
+}
+
+.articleContainer:hover .productImgDiscount {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+
+.imageWrapper {
+    position: relative;
+    overflow: hidden;
+    background-color: #e0e0e0; 
+    aspect-ratio: 1 / 1;
+}
+
+.productImgDiscount {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    filter: grayscale(30%); 
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.discountPercentageTag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #1a1a1a; 
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 10;
+}
+
+
+.productInfo {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.articleName {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0 0 8px 0;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.priceContainer {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.priceDiscount {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.priceAfter {
+    font-size: 0.9rem;
+    color: #999;
+    text-decoration: line-through;
+    font-weight: 300;
+}
+
+
+.articleContainer::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: #333;
+    margin-top: 15px;
+    transition: width 0.3s ease;
+}
+
+.articleContainer:hover::after {
+    width: 100%;
+}
