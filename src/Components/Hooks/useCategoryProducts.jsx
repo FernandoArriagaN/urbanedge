@@ -14,14 +14,17 @@ export const useCategoryProducts = (category) => {
         const fetchDiscount = async () => {
             try {
                 setLoading(true)
+                setError(null)
                 const response = await axios.get(`https://furniture-api.fly.dev/v1/products?category=${category}&limit=20`)
                 setProducts(response.data.data)
-                setLoading(false)
+                
             } catch (error) {
-                setError(error)
+                setError(error.response?.data?.message || "error al cargar los productos");
                 setLoading(false)
-            }
-        };
+            } finally {
+            setLoading(false)
+        }
+        } 
         fetchDiscount();
     }, [category])
 

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useCategoryProducts } from "../Hooks/useCategoryProducts";
 
 export const CategorySlide = ({ category }) => {
-  const { products, loading } = useCategoryProducts(category.key);
+  const { products, loading, error } = useCategoryProducts(category.key);
   const navigate = useNavigate()
 const handleClickProduct = (productSku) => {
     navigate(`/product/${productSku}`)
@@ -15,6 +15,8 @@ const handleClickProduct = (productSku) => {
 
       {loading ? (
         <p>Cargando...</p>
+      ) : error ? (
+        <p>{error} </p>
       ) : (
         <div className="products">
           {products.slice(0, 4).map((item) => (

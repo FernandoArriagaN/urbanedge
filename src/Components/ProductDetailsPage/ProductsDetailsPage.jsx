@@ -67,7 +67,7 @@ export const ProductDetailsPage = () => {
 
         return () => ctx.revert(); 
     }
-}, [loading, product]);
+}, [loading, product, error]);
 
     if (loading) return <p className="loadingText">Cargando detalles...</p>;
     if (error) return <p className="errorText">Error al cargar el producto</p>;
